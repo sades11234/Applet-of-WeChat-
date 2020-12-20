@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="wife">
+    <text wx:for="{{users}}" wx:for-item="user">{{user}}</text>
+    <!-- {{}}放在<text >{{}}</text> -->
+    <text wx:if="{{users.length == 7}}">集齐七颗龙珠，召唤神龙</text>
+    <!-- <text {{users[0]}}></text>
+    <text {{users[1]}}></text>
+    <text {{users[2]}}></text>
+    <text {{users[3]}}></text>
+    <text {{users[4]}}></text>
+    <text {{users[5]}}></text>
+    <text {{users[6]}}></text> -->
+  </view>
+  <view class="usermotto">
+    <text>十七行诗，</text>
+    <text class="user-motto">{{motto}}</text>
+    <!-- index.js motto设置显示 -->
+  </view>
+</view>
